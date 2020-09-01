@@ -1,0 +1,93 @@
+*{
+
+  font-family: 'Alegreya Sans SC', sans-serif;
+
+}
+
+body {
+  background-color: #edeef6;
+  text-align: center;
+  justify-content: space-between;
+}
+
+
+button {
+  background-color: #fff;
+  border: 0;
+  box-shadow: 0 2px 4px (0,0,0,0.5);
+  color: grey;
+  font-size: 13px;
+  text-align: center;
+  cursor: cell;
+
+
+}
+h1{
+  text-align: center;
+}
+
+
+
+dl {
+  text-align: center;
+  flex: auto;
+}
+
+
+
+
+
+
+
+#modal1 {
+  display: none;
+  width: 50%;
+  padding: 10px 30px 10px 10px;
+  box-shadow: 1px 2px 2px rgba(600, 1, 0, 10);
+  background-color: white;
+  margin: auto;
+  width: 500px;
+  position:relative;
+  text-align: left;
+}
+
+
+#modal2 {
+  display: none;
+  box-shadow: 1px 2px 2px rgba(600, 1, 0, 10);
+  background-color: white;
+  width: 50%;
+  margin: auto;
+  position: inherit;
+  padding: 10px 30px 10px 10px;
+  text-align:
+}
+
+
+
+#submit {
+  margin: auto;
+  width: 500px;
+  justify-content: space-around;
+  flex-direction: column;
+
+
+}
+
+
+h6 {
+  text-align: center;
+}
+
+
+h2 {
+  text-align: center;
+}
+
+ul {
+  text-align: center;
+  list-style-type: none;
+}
+
+
+/* search bar needs to not be sitting on buttons, little space and the modal title, symptoms is off centered. 
