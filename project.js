@@ -9,39 +9,46 @@ var settings = {
 	}
 }
 
-var i = 0
-$.ajax(settings).done(function (response) {
-  $('#Submit').click(function() {
-  while (true)
+var i = 0 //index variable starts out at 0
+$.ajax(settings).done(function (data) { //refresh the api, takes the response
+  $('#Submit').click(function() { //invokes the function with the button with the id submit
+  while (true) // while this is true
   {
-    if (response.response[i].country == $('#Country').val())
+    if (data.response[i].country == $('#Country').val()) // if this inner json country matches the input
     {
-      console.log(response.response[i]);
+      console.log(data.response[i]); // it will show the whole countrys which was choosens json.
 
 
 
 
 
-			$('#active').append($('<br>')).text('Active: ' +response.response[i].cases.active)
-			$('#critical').append($('<br>')).text('Critical:  '+response.response[i].cases.critical)
-			$('#new').append($('<br>')).text('New: ' +response.response[i].cases.new)
-			$('#recovered').append($('<br>')).text('Recovered:  '+response.response[i].cases.recovered)
-			$('#total').append($('<br>')).text('Total Cases:  '+response.response[i].cases.total)
+			$('#active').append($('<br>')).text('Active: ' +data.response[i].cases.active)
+			$('#critical').append($('<br>')).text('Critical:  '+data.response[i].cases.critical)
+			$('#new').append($('<br>')).text('New: ' +data.response[i].cases.new)
+			$('#recovered').append($('<br>')).text('Recovered:  '+data.response[i].cases.recovered)
+			$('#total').append($('<br>')).text('Total Cases:  '+data.response[i].cases.total)
+
+
+			$('#active_p').text('' +Math.round(data.response[i].cases.active/data.response[i].cases.total*100))
+
+			$('#recovery_p').text('' +Math.round(data.response[i].cases.recovered/data.response[i].cases.total*100))
+
+		
+
+// data is what i named the whole json object, and response represents each countries json.
 
 
 
 
-
-
-			$('#deaths').text(response.response[i].deaths.total)
+			$('#deaths').text(data.response[i].deaths.total)
 			$('#country').text($('#Country').val())
-			$('#population').text(response.response[i].population)
-			$('#day').text(response.response[i].day)
+			$('#population').text(data.response[i].population)
+			$('#day').text(data.response[i].day)
 
 
 			break;
     }
-    i++
+    i++ // increments index of each indivdual inner json
   }
   })
 });

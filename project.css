@@ -90,4 +90,9 @@ ul {
 }
 
 
-/* search bar needs to not be sitting on buttons, little space and the modal title, symptoms is off centered. 
+img {
+  width: 25%;
+  height: 40%;
+}
+
+/* search bar needs to not be sitting on buttons, little space and the modal title, symptoms is off centered.
