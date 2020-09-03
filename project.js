@@ -14,9 +14,9 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
   $('#Submit').click(function() { //invokes the function with the button with the id submit
   while (true) // while this is true
   {
-    if (data.response[i].country.toLowerCase().trim() == $('#Country').val().toLowerCase().trim()) // if this inner json country matches the input
+    if (data.response[i].country.toLowerCase().trim() == $('#Country').val().toLowerCase().trim()) // if this inner json country matches the input, added to lowercase and trim to so input would not be case sensitive and in case of an added space between the text.
     {
-      console.log(data.response[i]); // it will show the whole countrys which was choosens json.
+      console.log(data.response[i]); // it will log the choosen countries json in the dom.
 
 
 
@@ -35,7 +35,7 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
 
 
 
-// data is what i named the whole json object, and response represents each countries json.
+// data is what i named the object, and response represents each countries json.
 
 
 
@@ -74,7 +74,7 @@ $(() => {
 
 	$openBtn.on('click', openModal);
 	$closeBtn.on('click', closeModal);
-	setTimeout(openModal, 100000)
+
 })
 
 
