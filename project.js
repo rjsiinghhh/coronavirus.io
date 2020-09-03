@@ -12,11 +12,12 @@ var settings = {
 var i = 0 //index variable starts out at 0
 $.ajax(settings).done(function (data) { //refresh the api, takes the response
   $('#Submit').click(function() { //invokes the function with the button with the id submit
-  while (true) // while this is true
+  while (true)
   {
-    if (data.response[i].country.toLowerCase().trim() == $('#Country').val().toLowerCase().trim()) // if this inner json country matches the input, added to lowercase and trim to so input would not be case sensitive and in case of an added space between the text.
+    if (data.response[i].country.toLowerCase().trim() == $('#Country').val().toLowerCase().trim()) // if this inner json country matches the input, added to lowercase and trim too, so input would not be case sensitive and in case of an added space between the text.
+		// data is what I named the object, and response represents each countries json.
     {
-      console.log(data.response[i]); // it will log the choosen countries json in the dom.
+      console.log(data.response[i]); // it will log the choosen country in the dom.
 
 
 
@@ -27,15 +28,16 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
 			$('#new').append($('<br>')).text('New: ' +data.response[i].cases.new)
 			$('#recovered').append($('<br>')).text('Recovered:  '+data.response[i].cases.recovered)
 			$('#total').append($('<br>')).text('Total Cases:  '+data.response[i].cases.total)
+			//Similar to the lord of the rings homework assignment, when we appended the ring
 
 
 			$('#active_p').text('' +Math.round(data.response[i].cases.active/data.response[i].cases.total*100))
 
 			$('#recovery_p').text('' +Math.round(data.response[i].cases.recovered/data.response[i].cases.total*100))
 
+// Used the information already given from the api, divided it, then made a seperate categories to give live percentages.
 
 
-// data is what i named the object, and response represents each countries json.
 
 
 
@@ -45,7 +47,7 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
 			$('#population').text(data.response[i].population)
 			$('#day').text(data.response[i].day)
 
-
+// Same as above
 			break;
     }
     i++ // without the i++ it will just print out the first json of the index repeatedly.
@@ -55,7 +57,7 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
 
 
 // AJAX ABOVE AND MODALS BELOW
-
+// simple modals, like what we did in class using jquery. Same modal functions repeated three times for three modals.
 
 $(() => {
 	const $openBtn = $('#f');
@@ -76,6 +78,7 @@ $(() => {
 	$closeBtn.on('click', closeModal);
 
 })
+
 
 
 
