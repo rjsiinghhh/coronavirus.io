@@ -14,7 +14,7 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
   $('#Submit').click(function() { //invokes the function with the button with the id submit
   while (true) // while this is true
   {
-    if (data.response[i].country == $('#Country').val()) // if this inner json country matches the input
+    if (data.response[i].country.toLowerCase().trim() == $('#Country').val().toLowerCase().trim()) // if this inner json country matches the input
     {
       console.log(data.response[i]); // it will show the whole countrys which was choosens json.
 
@@ -33,7 +33,7 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
 
 			$('#recovery_p').text('' +Math.round(data.response[i].cases.recovered/data.response[i].cases.total*100))
 
-		
+
 
 // data is what i named the whole json object, and response represents each countries json.
 
@@ -48,13 +48,37 @@ $.ajax(settings).done(function (data) { //refresh the api, takes the response
 
 			break;
     }
-    i++ // increments index of each indivdual inner json
+    i++ // without the i++ it will just print out the first json of the index repeatedly.
   }
   })
 });
 
 
 // AJAX ABOVE AND MODALS BELOW
+
+
+$(() => {
+	const $openBtn = $('#f');
+	const $modal = $('#modal3');
+	const $closeBtn = $('#e');
+
+	const openModal = () => {
+		$modal.css('display', 'none');
+
+	}
+
+	const closeModal = () => {
+		$modal.css('display', 'block');
+
+	}
+
+	$openBtn.on('click', openModal);
+	$closeBtn.on('click', closeModal);
+	setTimeout(openModal, 100000)
+})
+
+
+
 
 
 $(() => {
